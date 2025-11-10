@@ -8,7 +8,7 @@ import ShoppingCartScreen from "../screens/ShoppingCartScreen";
 
 const Stack = createNativeStackNavigator();
 
-export default function AppNavigator() {
+export default function Navigation() {
   return (
     <Stack.Navigator>
       <Stack.Screen

@@ -1,24 +1,22 @@
-// Required at the top to make gesture-handler work on native (Android/iOS)
-import "react-native-gesture-handler";
-import { enableScreens } from "react-native-screens";
+import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import Navigation from "./src/navigation/Navigation";
-import ShoppingCart from "./src/screens/ShoppingCart";
-
-enableScreens();
-const App = () => {
+import Navigation from "./src/navigation/Navigation"; // Navigation de l'application
+import { Provider } from "react-redux"; // Fournisseur Redux
+import store from "./src/store"; // Importation du store Redux
+export default function App() {
   return (
-    <NavigationContainer>
-      <Navigation />
-    </NavigationContainer>
+    <Provider store={store}>
+      <View style={styles.container}>
+        <Navigation />
+        <StatusBar style="auto" />
+      </View>
+    </Provider>
   );
-};
-
-export default App;
-
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#fff",
+    justifyContent: "center",
   },
 });
